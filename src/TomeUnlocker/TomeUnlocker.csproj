@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <NoWarn>8618;8600;8602;8603;8604;8625;0618</NoWarn>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>TomeUnlocker</AssemblyName>
+    <Version>1.0.0.0</Version>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <ApplicationIcon />
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\cat.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.3.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FiddlerCore">
+      <HintPath>lib\FiddlerCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="CopyFiddlerDependencies" AfterTargets="Build">
+    <Copy SourceFiles="lib\Telerik.NetworkConnections.dll" DestinationFolder="$(OutputPath)" Condition="Exists('lib\Telerik.NetworkConnections.dll')" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="lib\ZstdSharp.dll" DestinationFolder="$(OutputPath)" Condition="Exists('lib\ZstdSharp.dll')" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="lib\System.Reactive.dll" DestinationFolder="$(OutputPath)" Condition="Exists('lib\System.Reactive.dll')" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="lib\HPack.dll" DestinationFolder="$(OutputPath)" Condition="Exists('lib\HPack.dll')" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="lib\Http2.dll" DestinationFolder="$(OutputPath)" Condition="Exists('lib\Http2.dll')" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="lib\BasicFormatsForCore.dll" DestinationFolder="$(OutputPath)" Condition="Exists('lib\BasicFormatsForCore.dll')" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>
