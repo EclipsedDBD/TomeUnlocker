@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <NoWarn>8618;8600;8602;8603;8604;8625;0618</NoWarn>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -11,10 +11,14 @@
     <Version>1.0.0.0</Version>
     <FileVersion>1.0.0.0</FileVersion>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <ApplicationIcon />
+    <ApplicationIcon>TOMES.ico</ApplicationIcon>
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="TOMES.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\cat.png" />
